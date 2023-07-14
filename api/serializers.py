@@ -5,6 +5,8 @@ from .models import Place
 
 
 class PlaceSerializer(serializers.ModelSerializer):
+    comments = serializers.PrimaryKeyRelatedField(many=True, read_only=True)
+
     class Meta:
         model = Place
         fields = (
