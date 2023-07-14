@@ -1,3 +1,7 @@
 from django.urls import path
 
-urlpatterns = []
+from .views import PlaceListView
+
+urlpatterns = [
+    path("places/", PlaceListView.as_view()),
+]
