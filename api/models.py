@@ -17,8 +17,10 @@ class Comment(models.Model):
     user_name = models.CharField(max_length=255)
     rating = models.FloatField()
     review = models.TextField()
-    place_id = models.ForeignKey(
-        Place, related_name="comments", on_delete=models.CASCADE
+    place = models.ForeignKey(
+        Place,
+        related_name="comments",
+        on_delete=models.CASCADE,
     )
 
     def __str__(self):

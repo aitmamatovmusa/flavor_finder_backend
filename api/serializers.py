@@ -1,7 +1,12 @@
-from django.db.models import fields
 from rest_framework import serializers
 
-from .models import Place
+from .models import Place, Comment
+
+
+class CommentSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Comment
+        fields = ("user_name", "rating", "review", "place")
 
 
 class PlaceSerializer(serializers.ModelSerializer):
@@ -16,4 +21,5 @@ class PlaceSerializer(serializers.ModelSerializer):
             "num_reviews",
             "average_price",
             "map_link",
+            "comments",
         )
