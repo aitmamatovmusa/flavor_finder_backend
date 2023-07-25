@@ -13,7 +13,13 @@ class PlaceList(APIView):
         return Response({"places": serializer.data})
 
     def post(self, request):
-        serializer = PlaceSerializer(data=request.data)
+        post_fields = {
+            **request.data,
+            "num_reviews": 0,
+            "rating": 0.0,
+        }
+
+        serializer = PlaceSerializer(data=post_fields)
 
         if serializer.is_valid():
             serializer.save()
