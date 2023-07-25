@@ -52,7 +52,12 @@ class PlaceDetail(APIView):
 
 class CommentList(APIView):
     def get(self, request):
-        comments = Comment.objects.all()
+        place_pk = request.query_params.get("place")
+        comments = (
+            Comment.objects.filter(place_id=place_pk)
+            if place_pk
+            else Comment.objects.all()
+        )
         serializer = CommentSerializer(comments, many=True)
         return Response({"comments": serializer.data})
 
