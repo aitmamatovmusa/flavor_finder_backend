@@ -16,7 +16,7 @@ class PlaceList(APIView):
         place_fields = {
             **request.data,
             "num_reviews": 0,
-            "rating": 0.0,
+            "average_rating": 0.0,
         }
 
         serializer = PlaceSerializer(data=place_fields)
