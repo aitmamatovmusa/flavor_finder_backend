@@ -5,9 +5,9 @@ class Place(models.Model):
     name = models.CharField(max_length=255)
     address = models.CharField(max_length=255)
     rating = models.FloatField(default=0.0)
-    num_reviews = models.IntegerField()
+    num_reviews = models.IntegerField(default=0)
     average_price = models.IntegerField()
-    map_link = models.CharField()
+    map_link = models.CharField(null=True, blank=True)
 
     def __str__(self):
         return self.name
