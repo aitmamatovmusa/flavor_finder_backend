@@ -1,67 +1,63 @@
 # Flavor Finder Backend
 
-Flavor Finder Backend is the backend component of the Flavor Finder web application, which allows users to find and review places to eat, as well as rate them based on their experiences. The backend is built using Django, serving as the API for the frontend application.
-
-## Project Description
-
-Flavor Finder Backend is responsible for handling data storage, and retrieval for the Flavor Finder web application. It provides RESTful API endpoints that the frontend application can interact with to perform various tasks, such as fetching places, leaving reviews, and calculating average ratings.
-
-## Features
-
-- CRUD operations for places and reviews
-- Calculating and displaying average ratings for places
+Flavor Finder Backend is the backend component of the Flavor Finder web application, providing the API for the frontend application. This backend is built using Django and Django REST Framework and utilizes PostgreSQL as the database.
 
 ## Technologies Used
 
-- Django
-- Django REST Framework
-- PostgreSQL
+- **Django**: A high-level Python web framework used for building web applications.
+- **Django REST Framework**: A powerful and flexible toolkit for building Web APIs in Django.
+- **PostgreSQL**: A robust open-source relational database system.
 
 ## Installation
 
-1. Clone this repository to your local machine using:
+To set up and run Flavor Finder Backend on your local machine using Poetry, follow these steps:
 
-```bash
-git clone https://github.com/aytmamatov/flavor_finder_backend.git
-```
+1. Clone this repository to your local machine:
+
+   ```bash
+   git clone https://github.com/aytmamatov/flavor_finder_backend.git
+   ```
 
 2. Navigate to the project directory:
 
-```bash
-cd flavor_finder_backend
-```
+   ```bash
+   cd flavor_finder_backend
+   ```
 
-3. Create and activate a virtual environment:
+3. Create and activate a virtual environment using Poetry:
 
-```bash
-python -m venv venv
-source venv/bin/activate  # For Windows: venv\Scripts\activate
-```
+   ```bash
+   poetry install
+   ```
 
-4. Install the project dependencies:
+4. Activate the virtual environment:
 
-```bash
-pip install -r requirements.txt
-```
+   ```bash
+   poetry shell
+   ```
 
-5. Create a PostgreSQL database and configure the database settings in `flavor_finder/settings.py`.
+5. Set up the database and configure the necessary environment variables by creating a `.env` file in your project directory. Add the following environment variables:
+
+   ```dotenv
+   SECRET_KEY=YOUR_SECRET_KEY
+   DB_NAME=YOUR_DB_NAME
+   DB_USER=YOUR_DB_USER
+   DB_PASS=YOUR_DB_PASSWORD
+   DB_HOST=YOUR_DB_HOST
+   DB_PORT=YOUR_DB_PORT
+   DEBUG=YOUR_DEBUG_SETTING
+   ```
 
 6. Apply database migrations:
 
-```bash
-python manage.py migrate
-```
+   ```bash
+   python manage.py migrate
+   ```
 
 7. Run the development server:
 
-```bash
-python manage.py runserver
-```
+   ```bash
+   python manage.py runserver
+   ```
 
-## Contributing
-
-If you would like to contribute to this project, feel free to open a pull request or submit an issue in the repository.
-
-## License
-
-This project is licensed under the MIT.
+With these steps, you can set up the Flavor Finder Backend locally and start building and testing your API. The frontend component of the Flavor Finder application, including tests, can be found in the Flavor Finder Frontend repository.
