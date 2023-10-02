@@ -10,6 +10,8 @@ Flavor Finder Backend is the backend component of the Flavor Finder web applicat
 
 ## Installation
 
+Make sure that you installed `python` and `pip`, you can install them here `https://www.python.org/downloads/`
+
 To set up and run Flavor Finder Backend on your local machine using Poetry, follow these steps:
 
 1. Clone this repository to your local machine:
@@ -26,6 +28,8 @@ To set up and run Flavor Finder Backend on your local machine using Poetry, foll
 
 3. Create and activate a virtual environment using Poetry:
 
+   If you don't have `poetry`. You can install it `pip install poetry`
+
    ```bash
    poetry install
    ```
@@ -35,26 +39,42 @@ To set up and run Flavor Finder Backend on your local machine using Poetry, foll
    ```bash
    poetry shell
    ```
+5. Database
+   ### macOS (using Postgres.app):
 
-5. Set up the database and configure the necessary environment variables by creating a `.env` file in your project directory. Add the following environment variables:
+   - **Download & Install:**
+      - Download [Postgres.app](https://postgresapp.com/) and install it.
 
-   ```dotenv
+   - **Setup:**
+      - Open Postgres.app to start the PostgreSQL server.
+
+   ### Other Operating Systems (e.g., Windows, Linux):
+   
+   - **Download & Install:**
+      - Download PostgreSQL from the [official website](https://www.postgresql.org/download/).
+      - Follow the installation wizard and provide necessary details.
+
+   - **Access PostgreSQL:**
+      - Use command line (`psql`) or GUI tools like pgAdmin for access and management.
+
+6. Configure the necessary environment variables for the project by creating a `.env` file in your project directory. Add the following environment variables:
+
+   ```
    SECRET_KEY=YOUR_SECRET_KEY
+   DEBUG=YOUR_DEBUG_SETTING
    DB_NAME=YOUR_DB_NAME
    DB_USER=YOUR_DB_USER
    DB_PASS=YOUR_DB_PASSWORD
    DB_HOST=YOUR_DB_HOST
    DB_PORT=YOUR_DB_PORT
-   DEBUG=YOUR_DEBUG_SETTING
    ```
-
-6. Apply database migrations:
+7. Apply database migrations:
 
    ```bash
    python manage.py migrate
    ```
 
-7. Run the development server:
+8. Run the development server:
 
    ```bash
    python manage.py runserver
